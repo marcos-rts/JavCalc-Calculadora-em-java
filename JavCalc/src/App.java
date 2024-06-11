@@ -3,6 +3,6 @@ public class App {
         Calculadora calculadora = new Calculadora();
 
         calculadora.Divisao(37, 5);
-        System.out.println(calculadora.msgFinal);
+        calculadora.getMsgFinal();
     }
 }
