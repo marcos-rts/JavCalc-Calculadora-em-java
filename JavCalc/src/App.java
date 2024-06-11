@@ -1,8 +1,9 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        Calculadora calculadora = new Calculadora();
+        Calculadora calc = new Calculadora();
 
-        calculadora.Divisao(37, 5);
-        calculadora.getMsgFinal();
+        calc.Soma(10, 5);
+        System.out.println(calc.getResultado()); // Deve imprimir o resultado da soma
+        System.out.println(calc.getMsgFinal()); // Deve imprimir a mensagem formatada
     }
 }
