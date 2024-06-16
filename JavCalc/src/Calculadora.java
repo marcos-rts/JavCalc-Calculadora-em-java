@@ -1,5 +1,14 @@
 import java.util.Scanner;
-
+/**
+ * <h1>Calculadora</h1>
+ * A Calculadora realiza operações matemáticas entre números inteiros
+ * <p>
+ *     <b>Note:</b> Leia atentamente a documentação desta classes para desfrutar dos recursos oferecidos pelo autor
+ * </p>
+ * @author Marcos Alexandre
+ * @version 0.1
+ * @since 16/06/2024
+ */
 public class Calculadora {
 
     Scanner scanner = new Scanner(System.in);
@@ -8,9 +17,14 @@ public class Calculadora {
     // Atributos da classe
     private float resultado;
     private String operacao;
-    private String msgFinal;
+    public String msgFinal;
     private float sobra;
-
+    /**
+     * Este método é utilizado para somar dois números inteiros
+     *
+     * @param n1   este é o primeiro parâmetro do método
+     * @param n2 este é o segundo parâmetro do método
+     */
     void Soma(int n1, int n2) {
         operacao = "soma";
         resultado = n1 + n2;
@@ -18,75 +32,40 @@ public class Calculadora {
     }
 
     void Subtracao(int n1, int n2) {
-        this.operacao = "subtracao";
-        this.resultado = n1 - n2;
+        operacao = "subtracao";
+        resultado = n1 - n2;
         Resultado(resultado, n1, n2, operacao);
     }
 
     void Multiplicacao(int n1, int n2) {
-        this.operacao = "multiplicacao";
-        this.resultado = n1 * n2;
+        operacao = "multiplicacao";
+        resultado = n1 * n2;
         Resultado(resultado, n1, n2, operacao);
     }
 
     void Divisao(int n1, int n2) {
         if (n2 == 0) {
-            this.operacao = "divisao";
-            this.resultado = Float.NaN;
-            this.sobra = Float.NaN;
-            this.msgFinal = "Divisão por zero não é permitida.";
+            operacao = "divisao";
+            resultado = Float.NaN;
+            sobra = Float.NaN;
+            msgFinal = "Divisão por zero não é permitida.";
         } else {
-            this.operacao = "divisao";
-            this.resultado = (float) n1 / n2;
-            this.sobra = n1 % n2;
+            operacao = "divisao";
+            resultado = (float) n1 / n2;
+            sobra = n1 % n2;
             Resultado(resultado, n1, n2, operacao);
         }
     }
 
     private void Resultado(float resultado, int n1, int n2, String operacao) {
-        if (this.operacao.equals("soma")) {
-            this.msgFinal = n1 + " + " + n2 + "\n---\n= " + this.resultado;
-        } else if (this.operacao.equals("subtracao")) {
-            this.msgFinal = n1 + " - " + n2 + "\n---\n= " + this.resultado;
-        } else if (this.operacao.equals("multiplicacao")) {
-            this.msgFinal = n1 + " x " + n2 + "\n---\n= " + this.resultado;
-        } else if (this.operacao.equals("divisao")) {
-            this.msgFinal = n1 + " / " + n2 + "\n---\n= " + this.resultado + "\nSobras: " + this.sobra;
+        switch (this.operacao) {
+            case "soma" -> this.msgFinal = n1 + " + " + n2 + "\n---\n= " + this.resultado;
+            case "subtracao" -> this.msgFinal = n1 + " - " + n2 + "\n---\n= " + this.resultado;
+            case "multiplicacao" -> this.msgFinal = n1 + " x " + n2 + "\n---\n= " + this.resultado;
+            case "divisao" -> this.msgFinal = n1 + " / " + n2 + "\n---\n= " + this.resultado + "\nSobras: " + this.sobra;
         }
-    }
 
-    // Get and Set
 
-    public float getResultado() {
-        return resultado;
-    }
-
-    public void setResultado(float resultado) {
-        this.resultado = resultado;
-    }
-
-    public String getOperacao() {
-        return operacao;
-    }
-
-    public void setOperacao(String operacao) {
-        this.operacao = operacao;
-    }
-
-    public String getMsgFinal() {
-        return this.msgFinal;
-    }
-
-    public void setMsgFinal(String msgFinal) {
-        this.msgFinal = msgFinal;
-    }
-
-    public float getSobra() {
-        return sobra;
-    }
-
-    public void setSobra(float sobra) {
-        this.sobra = sobra;
     }
 
 }
